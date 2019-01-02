@@ -5,6 +5,8 @@ title = "My New Hugo Site"
 theme = "midnight"
 
 [params]
+    [sidebar]
+        disabled = "true"
 [params.Midnight]
 [params.Midnight.color]
     page_background = "#000000"
