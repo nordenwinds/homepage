@@ -1,229 +1,328 @@
-baseurl = "https://example.com/"
-languageCode = "en_US"
-title = "Hugo Tikva Theme"
+# Site settings
+baseurl = "https://example.org/"
+languageCode = "ja-jp"
+title = "Norden Wind Ensemble"
+theme = "hugo-agency-theme"
 
-theme = "hugo-tikva"
+# Enter your tracking code to enable Google Analytics
+googleAnalytics = ""
 
-# Language setting of the site, for language configuration see
-#  https://gohugo.io/content-management/multilingual/
-# There are only a few strings which need to be translated, feel free to add more
-# languages.
-DefaultContentLanguage = "en" # current values: "en" or "de"
-
-# To enable a demo of pagination, this value is set to 2 instead of the default. See https://gohugo.io/getting-started/configuration/
-# for all site variables. The paginate default is 10
-paginate = 2
-
-# Google Analytics setting, see Hugo internal templates
-#googleAnalytics = "UA-123-45"
-
-
-# For all color settings, please use the format "#rrggbb". 
-
-# Generic parameters
 [params]
-    appendSiteTitle = true # Append site title to title tag on every page. Default false
-    #favicon = 'img/favicon.ico' # Add favicon, default empty
-    subtitle = "Example of Subtitle"
+  # You can use Markdown syntax for urls [text](//url.to/source) or
+  # most longer texts.
+  #
+  # All icons using Fontawesome's icon font. Look at fortawesome.github.io/Font-Awesome/icons/
+  # for more icons. The icons are represented by their corresponding
+  # CSS class.
 
-    dateFormat = "02.01.2006" # Format dates with Go's time formatting
-    showDate = true # true|false: Show date on summaries. This is a global setting. If the date should be shown, you have to add a "date" parameter to the content files, otherwise the default value will be used, which is something you don't want.
-    showNumberOfWords = false # true|false: Show number of word on article header of single content page
-    hideMeta = false # Hide meta information on single pages
+  # To provide some metadata for search engines feel free to add a few
+  # information about you and your website.
+  name = "Your name"
+  description = "Your description"
+  # email = "your@email.com"
 
+  # Link custom assets relative to /static
+  custom_css = []
+  custom_js  = []
+  favicon    = "favicon.ico"
 
-# Navigation bar settings
+  # Possibility to disable external/additional fonts
+  # Exception: Fontawesome
+  disableFonts = false
 
-[params.navbar]
-    style = "header" # Navigation bar style, values "fixed-top" or "header", default is fixed-top 
-    
-    colorScheme = "navbar-dark" # navbar-light, navbar-dark
-    
-    bgScheme = "bg-primary" # see Bootstrap docs, bg.* utilities https://getbootstrap.com/docs/4.1/utilities/colors/
-    
-    backgroundColor = ''  # custom background color parameters, e.g. #e3f2fd !important, If color is set, it will be used for background. Set empty for above selection.
-    
-    adjustHeader = 20 # Adjust header by adding a distance between navigation and content. Some of the styles need more space, so you can use this option to adjust. Use an integer value of pixels.
-    
-    textAlignment = '' # don't set or leave empty for default (left), or justify-content-end, justify-content-center
+  # 404 error customization
+  [params.error404]
+    heading = "Page couldn't be found"
+    text = "Please visit [this page](/)"
 
-    #brandImage = 'img/rg_mod_20.png' # The "brand image" will be set in "fixed-top" style as icon beside the site title. 
+  # Optional piwik tracking
+  #[params.analytics.piwik]
+  #  URL = "https://stats.example.com"
+  #  ID = "42"
+  #  # Track all subdomains with "*.example.com"
+  #  domain = "www.example.com"
+  #  # Optional integrity check hash
+  #  hash = "sha512-RfeD0pacGTqy9m7U6PgehQfS4cc7SIt+e+P+H5e848kEvB/RW84CUGO3O4O3LNbxjevym6KPUZ8muPsMrI8WIw=="
 
+  # Navigation
+  [params.navigation]
+    brand = "Norden Wind Ensemble"
+    # Optional logo as brand stored in img/
+    #logo = "logo.svg"
+    services = "Services"
+    portfolio = "Portfolio"
+    about = "About"
+    team = "Team"
+    contact = "Contact"
 
-# Meta header parameter settings
+    # Add custom links. Those can be pre- and postpended to the default menu above.
+    # Use the weight attribute to order your custom links. Uncomment the example
+    # below and replace the values with your own.
 
-# You can add as many rows as you want, every row defines a meta tag with its key and value. 
-# The content will be included in the head of the site as: <meta name="_key_" content="_value_">.
+    # prepended links
+    #[[menu.prepend]]
+    #  url = "http://gohugo.io"
+    #  name = "Hugo"
+    #  weight = 10
 
-[params.meta]
-    description = "This is only an example value for the meta description"
-    keywords = "example, site, theme, tikva"
-    author = "John Doe"
-    "DC.Copyright" = "Karl Mustermann"
-    
-
-# Theme configuration
-
-[params.theme]
-
-    bootstrapTheme = 'solar' # Use empty value for default Bootstrap color scheme or one of the following values:
-    # bolt, bstrap, btcn, calabaza, cerulean, cosmo, cyborg, darkly, flatly, hoff, journal,
-    # kdo_flatly, kdo2, kunsch, lumen, lux, malibu, materia, minim, minty, pulse, sandstone, 
-    # signa, simplex, sketchy, slate_accessibility_ready, slate, solar, sonic, spacelab, united, yeti
-
-    backgroundColor = '' # If color is set, it will be used for background. Set empty for default.
-    backgroundImage = '' # Set background image, use file name with path in static folder, e.g. 'img/background.jpg'
-    backgroundImageRepeat = '' # Set background image repeat option, see https://developer.mozilla.org/de/docs/Web/CSS/background-repeat
-
-
-# Header configuration
-
-[params.theme.header]
-    # The following options are mostly used when the navbar is in "header" mode, i.e. not fixed-top
-    fontColor = '' # header font color, leave empty for default
-    linkColor = '' # header link color, leave empty for default
-    backgroundColor = '' # header background color, leave empty for default
-
-    image = 'img/header_bg_example.jpg' # Use header image. This option is only valid if the theme is configured to the "header" style. 
-    
-    width = 2512 # Width of header image. Please set this value to the correct size, because it will be used for size calculation.
-    height = 673 # Height of header image. Please set this value to the correct size, because it will be used for size calculation.
-    altText = 'alt text for header image' # Set alt text for header image, default empty
-    displayHeaderText = true # display the title and subtitle - yes or no?
-    titleOnImage = true # true|false, default false. Display title and subtitle as overlay in the foreground of the image. It is only possible to set the title as image overlay if an image is available. If no image is configured, the theme will do a fallback to non-overlay, i.e. title and subtitle will be displayed above the main navigation. 
-    fontColorTitle = '#073642' # For all colors, please use #rrggbb format with # and 6 characters
-    fontColorSubtitle = '#333333'
-    overlayAlignment = 'lt' # lt = left/top, mt = middle/top, rt = right/top, lb = left/bottom, mb = middle/bottom, rb = right/bottom
-    overlayDistanceVertical = '20' # Dependent on the overlayAlignment option, this option is used to modify the vertical distance between the margin and the title/subtitle. This allows to place the title and subtitle on nearly any place related to the header image. 
-    overlayDistanceHorizontal = '20' # The same as above, but for horizontal distance. 
-    overlayDistanceBetween = '0' # Distance between title and subtitle 
-    overlayBackgroundColor = '#000000'
-    overlayTransparency = '0' # default 70%, allowed values from 0 - 100 (without % sign!). This option enables a transparent background of title and subtitle. This is useful if the "titleOnImage" option is true, so the title is placed as overlay above the image. If this option is set to 0 or an empty value, the transparency color setting will be disabled. 
-
-# Footer configuration
-
-# To create a footer, create a directory "sections/footer" into your project’s content directory.
-# Then add some content files (.md or .html) to the footer folder AND create an index.md file with the Front Matter setting
-# headless: true
-# Without the "headless" setting the sidebar will not be displayed! 
-# See https://gohugo.io/content-management/page-bundles/#headless-bundle 
-# You can modify the style with a partial "footer_column.html", see example in "layouts/partials/".
-
-[params.theme.footer]
-    enabled = true # Show the footer part
-    #numberColumns = 3 # Set number of columns available in footer of a page. Use the "footer" folder in the page structure to add content. If nothing is set, the default number is 3. Currently.i.e. since v0.2 not used, the number of columns is identical to the number of files in footer directory.
-    fontColor = '#f9fcf9' # set #rgb code, leave empty for default
-    linkColor = '' # Set color of links as #rrggbb code, leave empty for default
-    backgroundColor = '#29281f' # Set color of background as #rrggbb code, leave empty for default
-
-# Subfooter configuration
-
-# To create a subfooter, create a directory "sections/subfooter" into your project’s content directory.
-# Then add some content files (.md or .html) to the subfooter folder AND create an index.md file with the Front Matter setting
-# headless: true
-# Without the "headless" setting the sidebar will not be displayed! 
-# See https://gohugo.io/content-management/page-bundles/#headless-bundle 
-# You can modify the style with a partial "subfooter_item.html", see example in "layouts/partials/".
-
-[params.theme.subfooter]
-    enabled = true # Show the content below the footer
-    fontColor = '' # Text color in subfooter. Leave empty to use the theme default. 
-    linkColor = '' # Link color in subfooter. Leave empty to use the theme default. 
-    backgroundColor = '' # Background color of subfooter. Leave empty to use the theme default. 
-
-# Font configuration
-
-# In this section it is possible to modify the font settings of title, subtitle, navigation bar, body (i.e. the default text used in the content areas) and headlines h1 - h6. You can use Google Fonts as well as any font string the browser supports. 
-
-[params.fonts]
-   
-    headerTitle = 'Exo' # set font, use string, e.g. "Lucida, Verdana, sans-serif". You can use any font value. Please activate Google Font option if you want to include Google Fonts, see their names on https://fonts.google.com/
-    headerTitleGoogleFont = true # If the font in the above variable is a Google font, set this option to true. 
-    headerTitleVariant = '800' # font variant, if available, e.g. "regular", "bold" etc. Not every font is available in multiple variants.
-    headerTitleSize = '50px' # set font size, empty for default settings. Valid values are '20px', '1.2em' and so on
-    
-    headerSubtitle = 'Exo' # Font settings for subtitle
-    headerSubtitleGoogleFont = true # If the font in the above variable is a Google font, set this option to true. 
-    headerSubtitleVariant = '600' # See above
-    headerSubtitleSize = '30px' # See above
-
-    #navbar = 'Lucida, Verdana' # font settings for navigation bar
-    navbarGoogleFont = false # If the font in the above variable is a Google font, set this option to true.  
-    navbarVariant = '' # See above
-    navbarSize = '20px' # See above
-
-    body = '' # font settings for body content
-    bodyGoogleFont = false # If the font in the above variable is a Google font, set this option to true. 
-    bodyVariant = '' # See above
-    bodySize = '' # See above
-
-    headline = 'Open Sans' # font settings for body content
-    headlineGoogleFont = true # If the font in the above variable is a Google font, set this option to true. 
-    headlineVariant = '' # See above
-    headlineBaseSize = '' # Set base font of headlines. The real size of H1 - H6 will be calculated based on this size with the same resize factors as in the CSS framework. Choose a size of 0 (zero) to use the default font size of the theme. Please use only integer values without "px", "em" or something else. 
+    # postpended links
+    # [[menu.postpend]]
+      # url = "http://gohugo.io"
+      # name = "External link"
+      # weight = 10
 
 
-# Web analytics configuration
-
-# For Google Analytics, set the googleAnalytics config option to use internal Google Analytics template as described on
-# https://gohugo.io/templates/internal/ 
-# The config option has to be in the first level above the [params] section!
-
-# This theme includes the standard embed codes for Matomo and Yandex Metrica. If you have configured some special options, you can simply overwrite the analytics partials. Just place the snippet code in the file "layouts/partials/analytics/matomo.html" or "layouts/partials/analytics/yandexmetrica.html" in your site folder. Or copy the theme partials from their path and change their options. If you have added custom snippet files, Hugo's lookup order will use your partial file at first. 
-
-[params.analytics.matomo]
-    enabled = false # Enable Matomo web analytics
-    url = 'https://analytics.example.com' # URL of Matomo application
-    siteId = 0 # Matomo site id. Provided by Matomo when a site is added.
-
-[params.analytics.yandexmetrica]
-    enabled = false # Enable Yandex Metrica
-    tagNumber = '012345678' # Tag ID / number as seen on Yandex Metrica settings page
-    
-# Sidebar section
-
-# To create a sidebar, create a directory "sections/sidebar" into your project’s content directory.
-# Then add some content files (.md or .html) to the sidebar folder AND create an index.md file with the Front Matter setting
-# headless: true
-# Without the "headless" setting the sidebar will not be displayed! 
-# See https://gohugo.io/content-management/page-bundles/#headless-bundle 
-# You can modify the style with a partial "sidebar_item.html", see example in "layouts/partials/".
-
-[params.sidebar]
-    enabled = true # default false; set to true to enable sidebar
-    style = 'right' # options: 'left', 'right'. Left means sidebar on the left side, right displays the sidebar on the right side
+  # Hero section
+  [params.hero]
+    # To change the background image of the hero, replace 'header-bg.jpg' in
+    # the 'static/img' folder.
+    title = "Welcome To Our Stage!"
+    subtitle = "It's nice to meet you"
+    buttonText = "Tell me more"
 
 
-# Menu section
+  # Services section
+  [params.services]
+    enable = false
+    title = "Services"
+    subtitle = "Lorem ipsum dolor sit amet consectetur."
 
-# This is an example of the main menu. You can also use the in-file setting in the header of the content files. 
+    [[params.services.row]]
 
-[menu]
+    [[params.services.row.list]]
+      icon = "fa-shopping-cart"
+      title = "E-Commerce"
+      description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
+      url = "#"
 
-  [[menu.main]]
-    identifier = "home"
-    name = "Home"
-    url = "/"
-    weight = 10
+    [[params.services.row.list]]
+      icon = "fa-laptop"
+      title = "Responsive Design"
+      description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
+      url = "#"
+
+    [[params.services.row.list]]
+      icon = "fa-lock"
+      title = "Web"
+      description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
+      url = "#"
+
+  # Portfolio section
+  [params.portfolio]
+    enable = true
+    # All projects defined in their own files. You can find example projects
+    # at 'exampleSite/data/projects'. Copy the 'projects' folder into the 'data' directory
+    # at the root of this Hugo site.
+    # For more informtion take a look at the README.
+    title = "Portfolio"
+    subtitle = "Our concerts."
+
+    [params.portfolio.modal]
+      client = "Client"
+      date = "Date"
+      category = "Category"
+      buttonText = "Close project"
 
 
-  [[menu.main]]
-    identifier = "posts"
-    name = "Blog"
-    url = "/posts/"
-    weight = 20
+    # About section
+  [params.about]
+    enable = true
+    title = "About"
+    subtitle = "Our history."
+    endpoint = "Be part<br>of our<br>story!"
+
+    # The events will be listed from the top to the bottom.
+    # All images are stored under 'static/img/about'.
+    # Replace them with your own.
+    [[params.about.events]]
+      img = "Start.jpg"
+      date = "January 2018"
+      title = "Norden Wind Ensemble 結成"
+      description = "結成しました"
+
+    [[params.about.events]]
+      img = "FirstConcert.jpg"
+      date = "January 2019"
+      title = "第1回演奏会"
+      description = "1回目の本番を迎えました"
+
+    # [[params.about.events]]
+    #   img = "3.jpg"
+    #   date = "December 2012"
+    #   title = "Our Humble Beginnings"
+    #   description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+
+    # [[params.about.events]]
+    #   img = "4.jpg"
+    #   date = "July 2014"
+    #   title = "Phase Two Expansion"
+    #   description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
 
 
-  [[menu.main]]
-    identifier = "about"
-    name = "About"
-    url = "/about/"
-    weight = 30
+  # Team section
+  [params.team]
+    enable = false
+    # Possibility to center items
+    #center = true
+    title = "Our amazing team"
+    subtitle = "Lorem ipsum dolor sit amet consectetur."
+    description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde."
 
-    
-  
-  [[menu.main]]
-    name = "Feedback"
-    url = "/feedback/"
-    weight = 40
+    # All team member's pictures are stored under 'static/img/team'.
+    # Replace them with your own too.
+    # Suggestion: Image size should be at least 360px*360px or the alignment might be affected.
+    [[params.team.members]]
+      img = "1.jpg"
+      name = "Kay Garland"
+      position = "Lead Designer"
+      reportsTo = "CTO"
+      livesIn = "[Munich, Germany](#some-maps-url)"
+      scope = [
+        "UX for [member dashboard](#)",
+        "Maintainer for [awesome-project](#)",
+        "Open Source [community management](#)"
+      ]
+      # For bio markdown and even multiline strings are available.
+      bio = """Kay is an awesome Lead Designer with heaps of experience in the field of UX.
+She worked at Pied Piper for years until they went belly up."""
+      social = [
+        ["fa-twitter", "#"],
+        ["fa-facebook", "#"],
+        ["fa-linkedin", "#"]
+      ]
 
+    [[params.team.members]]
+      img = "2.jpg"
+      name = "Larry Parker"
+      position = "Lead Marketer"
+      social = [
+        ["fa-twitter", "#"],
+        ["fa-facebook", "#"],
+        ["fa-linkedin", "#"]
+      ]
+
+    [[params.team.members]]
+      img = "3.jpg"
+      name = "Diana Pertersen"
+      position = "Lead Developer"
+      social = [
+        ["fa-twitter", "#"],
+        ["fa-facebook", "#"],
+        ["fa-linkedin", "#"]
+      ]
+
+  # Client section
+    [params.clients_list]
+      enable = false
+      # Possibility to center items
+      #center = true
+      # Optional client title specifying the involvement
+      #title = "Used and trusted by"
+
+      # All the clients' logos are stored under 'static/img/logos'.
+      # Replace them with your clients's logos.
+      # Suggestion: .svg in the size of 280px*80px looks good
+      [[params.clients]]
+        logo = "envato.jpg"
+        link = "#"
+
+      [[params.clients]]
+        logo = "designmodo.jpg"
+        link = "#"
+
+      [[params.clients]]
+        logo = "themeforest.jpg"
+        link = "#"
+
+      [[params.clients]]
+        logo = "creative-market.jpg"
+        link = "#"
+
+  # Contact section
+  [params.contact]
+    enable = true
+    title = "Contact us"
+    subtitle  = "お問い合わせはこちら"
+    buttonText = "Send message"
+    # netlify = true
+
+    # Since this template is static, the contact form uses www.formspree.io as a
+    # proxy. The form makes a POST request to their servers to send the actual
+    # email. Visitors can send up to a 1000 emails each month for free.
+    #
+    # What you need to do for the setup?
+    #
+    # - set your email address under 'email' below
+    # - upload the generated site to your server
+    # - send a dummy email yourself to confirm your account
+    # - click the confirm link in the email from www.formspree.io
+    # - you're done. Happy mailing!
+
+    # It is possible to substitute formspring with other providers
+    # as an example the mailout plugin from caddy.
+    # Provide the post URL for the form and depending on the provider
+    # add some custom JS script to finish the implementation.
+    # postURL = "https://example.com/mailout/"
+
+    email = "nordenwinds@gmail.com"
+
+    # Success and error message overwrite for async contact form
+    #thanks = "Thank you for awesomely contacting us."
+    #error = "Message could not be send. Please contact us at mail@example.com instead."
+
+    [params.contact.captcha]
+      # sitekey = ""
+
+    # 'warning' defines error messages for invalid inputs
+    [params.contact.form.name]
+      text = "お名前 *"
+      warning = "名前を入力してください"
+
+    [params.contact.form.email]
+      text = "Email *"
+      warning = "メールアドレスを入力してください"
+
+    # [params.contact.form.phone]
+    #   text = "Your Phone *"
+    #   warning = "Please enter your phone number."
+
+    [params.contact.form.message]
+      text = "お問い合わせ内容 *"
+      warning = "お問い合わせ内容を入力してください"
+
+      # Add optional form fields to identify contact forms
+      #[[params.contact.form.hidden]]
+      #  name = "someID"
+      #  value = "example.com"
+      #
+      #[[params.contact.form.hidden]]
+      # Special values for name such as "page" and "site" will be autofilled
+      #  name = "page"
+
+  # Footer section
+  [params.footer]
+    enable = true
+    copyright = "&copy; 2019 Norden Wind Ensemble."
+
+    [[params.footer.social]]
+      icon = "fa-twitter"
+      link = "#"
+      title = "Twitter"
+
+    [[params.footer.social]]
+      icon = "fa-facebook"
+      link = "#"
+      title = "Facebook"
+
+    # [[params.footer.social]]
+    #   icon = "fa-linkedin"
+    #   link = "#"
+    #   title = "LinkedIn"
+
+    # [[params.footer.quicklinks]]
+    #   text = "Privacy Policy"
+    #   link = "#"
+
+    # [[params.footer.quicklinks]]
+    #   text = "Terms of Use"
+    #   link = "#"
