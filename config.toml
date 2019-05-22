@@ -1,5 +1,5 @@
 # Site settings
-baseurl = "https://example.org/"
+baseurl = "https://serene-dijkstra-a9002d.netlify.com/"
 languageCode = "ja-jp"
 title = "Norden Wind Ensemble"
 theme = "hugo-agency-theme"
